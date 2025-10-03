@@ -86,13 +86,15 @@ make coverage          # Run tests with coverage report
 ### Test Structure
 ```csharp
 [Test]
-public void MethodName_Scenario_Expectedactual()
+public void TestMethodName_Scenario_ActualIsEqualToExpected()
 {
     // Arrange
-    var sut = new ClassUnderTest();
+    var classUnderTest = new ClassUnderTest();
+    var input = 42;
+    var expected = 42;
     
     // Act
-    var sut = classUnderTest.Method(input);
+    var actual = classUnderTest.Method(input);
     
     // Assert
     Assert.That(actual, Is.EqualTo(expected));
