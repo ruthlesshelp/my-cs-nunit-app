@@ -1,0 +1,60 @@
+{
+  "settings": {
+    "documentationRules": {
+      "companyName": "Your Company",
+      "copyrightText": "Copyright (c) {companyName}. All rights reserved.",
+      "documentExposedElements": true,
+      "documentInternalElements": true,
+      "documentPrivateElements": false,
+      "documentPrivateFields": false,
+      "documentInterfaces": true,
+      "documentationCulture": "en-US",
+      "fileHeaderMustShowCopyright": true,
+      "fileHeaderMustHaveSummary": true,
+      "xmlDocumentationMustNotBeMissingOrIncomplete": true
+    },
+    "layoutRules": {
+      "newlineAtEndOfFile": "require",
+      "allowConsecutiveUsings": true
+    },
+    "maintainabilityRules": {
+      "topLevelTypes": 1
+    },
+    "namingRules": {
+      "allowCommonHungarianPrefixes": false,
+      "allowedHungarianPrefixes": [],
+      "includeInferredTupleElementNames": true,
+      "tupleElementNameCasing": "camelCase"
+    },
+    "orderingRules": {
+      "systemUsingDirectivesFirst": true,
+      "usingDirectivesPlacement": "outsideNamespace",
+      "blankLinesBetweenUsingGroups": "allow"
+    },
+    "readabilityRules": {
+      "allowBuiltInTypeAliases": true
+    },
+    "spacingRules": {
+      "keywordsMustBeSpacedCorrectly": true,
+      "commasMustBeSpacedCorrectly": true,
+      "semicolonsMustBeSpacedCorrectly": true,
+      "symbolsMustBeSpacedCorrectly": true,
+      "openingParenthesesMustBeSpacedCorrectly": true,
+      "closingParenthesesMustBeSpacedCorrectly": true,
+      "openingSquareBracketsMustBeSpacedCorrectly": true,
+      "closingSquareBracketsMustBeSpacedCorrectly": true,
+      "operatorsMustBeSpacedCorrectly": true,
+      "membersAccessSymbolsMustBeSpacedCorrectly": true,
+      "incrementDecrementSymbolsMustBeSpacedCorrectly": true,
+      "negativeAndPositiveSignsMustBeSpacedCorrectly": true,
+      "colonsMustBeSpacedCorrectly": true,
+      "codeBlocksMustNotContainMultipleBlankLinesInARow": true,
+      "openingCurlyBracketsMustBeSpacedCorrectly": true,
+      "closingCurlyBracketsMustBeSpacedCorrectly": true,
+      "openingGenericBracketsMustBeSpacedCorrectly": true,
+      "closingGenericBracketsMustBeSpacedCorrectly": true,
+      "genericTypeConstraintsMustBeOnOwnLine": true,
+      "preprocessorKeywordsMustNotBePrecededBySpace": true
+    }
+  }
+}
