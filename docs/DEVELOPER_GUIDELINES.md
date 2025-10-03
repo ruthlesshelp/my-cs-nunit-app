@@ -130,7 +130,7 @@ This project implements a comprehensive code quality strategy with multiple laye
 ### Test Structure
 ```csharp
 [Test]
-public void MethodName_Scenario_ExpectedResult()
+public void TestMethodName_Scenario_ExpectedResult()
 {
     // Arrange - Set up test data and dependencies
     var classUnderTest = new ClassUnderTest();
