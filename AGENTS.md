@@ -145,6 +145,108 @@ dotnet restore                  # Restore packages
 4. **Build Verification**: Use `make build` and `make test` to verify changes
 5. **Coverage**: Aim for high test coverage using `make coverage`
 
+### Comprehensive Testing Guidelines
+
+#### Coverage Analysis and Test Quality
+Line coverage alone is insufficient for determining test quality. Use `make coverage` to generate coverage reports, but supplement with comprehensive test scenario analysis:
+
+```bash
+make coverage  # Generate coverage report
+# Review coverage.cobertura.xml for detailed line-by-line analysis
+```
+
+#### Essential Test Categories
+
+**1. Different Input Values**
+- **Positive Values**: Test with various positive integers (1, 42, 1000)
+- **Negative Values**: Test with various negative integers (-1, -42, -1000)
+- **Zero**: Test with zero value
+- **Boundary Values**: Test with `int.MaxValue` and `int.MinValue`
+
+**2. Edge Cases and Default States**
+- **Default State**: Test behavior before any initialization
+- **Multiple Operations**: Test multiple calls to the same method
+- **Sequence Testing**: Test different operation sequences
+- **Boundary Conditions**: Test at the limits of data types
+
+**3. Behavioral Testing**
+- **State Persistence**: Verify state remains consistent across method calls
+- **State Transitions**: Test how state changes with different inputs
+- **Overwrite Behavior**: Test how new values replace previous ones
+- **Immutability**: Verify returned values don't affect internal state
+
+#### Test Scenario Framework
+
+For each public method, ensure tests cover:
+
+```csharp
+// Example comprehensive test structure for Class1
+[TestFixture]
+public class Class1Tests
+{
+    [TestCase(0, 0)]
+    [TestCase(1, 1)]
+    [TestCase(-1, -1)]
+    [TestCase(int.MaxValue, int.MaxValue)]
+    [TestCase(int.MinValue, int.MinValue)]
+    public void TestFunction1_WithVariousInputs_StoresAndReturnsCorrectValue(int input, int expected)
+    {
+        // Arrange
+        var classUnderTest = new Class1();
+        classUnderTest.Function1(input);
+
+        // Act
+        var actual = classUnderTest.Function2();
+
+        // Assert
+        Assert.That(actual, Is.EqualTo(expected));
+    }
+
+    [Test]
+    public void TestFunction2_WithoutPriorFunction1Call_ReturnsDefaultValue()
+    {
+        // Arrange
+        var classUnderTest = new Class1();
+
+        // Act
+        var actual = classUnderTest.Function2();
+
+        // Assert
+        Assert.That(actual, Is.EqualTo(0));
+    }
+
+    [Test]
+    public void TestFunction1_MultipleCalls_OverwritesPreviousValue()
+    {
+        // Arrange
+        var classUnderTest = new Class1();
+        classUnderTest.Function1(42);
+        classUnderTest.Function1(24);
+
+        // Act
+        actual = classUnderTest.Function2();
+
+        // Assert
+        Assert.That(, Is.EqualTo(24));
+    }
+}
+```
+
+#### Quality Metrics
+- **Line Coverage**: Aim for 100% but verify meaningfulness
+- **Branch Coverage**: Test all conditional paths
+- **Method Coverage**: Exercise all public methods
+- **Scenario Coverage**: Test all realistic use cases
+
+#### Testing Checklist
+- [ ] All positive, negative, and zero input values tested
+- [ ] Boundary values (min/max) tested
+- [ ] Default/uninitialized state tested
+- [ ] Multiple method calls tested
+- [ ] State persistence verified
+- [ ] Edge cases identified and tested
+- [ ] Error conditions handled appropriately
+
 ### Common File Patterns
 - **C# Classes**: Follow `MyApp` namespace, include file headers
 - **Unit Tests**: Follow `MyTests` namespace, use NUnit attributes

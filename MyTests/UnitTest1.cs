@@ -36,15 +36,15 @@ internal sealed class UnitTest1
     /// This specific test case uses zero as the input value.
     /// </remarks>
     [Test]
-    public void Function2_WithInputZero_ReturnsZero()
+    public void TestFunction2_WithInputZero_ReturnsZero()
     {
         // Arrange
-        var class1 = new Class1();
-        class1.Function1(0);
+        var classUnderTest = new Class1();
+        classUnderTest.Function1(0);
         int expected = 0;
 
         // Act
-        int actual = class1.Function2();
+        int actual = classUnderTest.Function2();
 
         // Assert
         Assert.That(actual, Is.EqualTo(expected));
