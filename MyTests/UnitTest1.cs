@@ -1,40 +1,15 @@
-// <copyright file="UnitTest1.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
-// </copyright>
-
-// <summary>
-// This file contains unit tests for the MyApp project using NUnit framework.
-// </summary>
-
-// <author>Your Name</author>
-// <created>October 3, 2025</created>
 namespace MyTests;
 
 using MyApp;
 
-/// <summary>
-/// Contains unit tests for the MyApp project functionality.
-/// </summary>
 internal sealed class UnitTest1
 {
-    /// <summary>
-    /// Sets up test environment before each test execution.
-    /// Currently no specific setup is required for these tests.
-    /// </summary>
     [SetUp]
     public void Setup()
     {
     }
 
-    /// <summary>
-    /// Tests that Function2 returns the value that was previously set by Function1.
-    /// </summary>
-    /// <remarks>
-    /// This test verifies the basic input/output functionality of Class1:
-    /// 1. A value is stored using Function1
-    /// 2. The same value is retrieved using Function2
-    /// This specific test case uses zero as the input value.
-    /// </remarks>
+    // 0 => { 1, 0, 5, 0, 10, 0, 25, 0 }
     [Test]
     public void TestFunction2_WithInputZero_ReturnsZero()
     {
@@ -44,9 +19,10 @@ internal sealed class UnitTest1
         int expected = 0;
 
         // Act
-        int actual = classUnderTest.Function2();
+        var result = classUnderTest.Function2();
 
         // Assert
+        int actual = TestHelper.CalculateSum(result);
         Assert.That(actual, Is.EqualTo(expected));
     }
 }
